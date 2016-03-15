@@ -1,27 +1,62 @@
+Hi Puppies...
 
+For a new kirby site
 
-This is a docker image for running [kirby](http://getkirby.com) cms apps
+### fork this repo :)
 
-to use:
+### rename to project name
 
-### pull it
+### fire up "Docker Quickstart Terminial"
+
+Check that docker is running by running 
 
 ```
-docker pull bhurlow/docker-kirby-nginx
+docker ps
+```
+
+Output should be:
+
+```
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```
+### on your local machine login to https://hub.docker.com account
+
+```
+docker login
+```
+
+### clone your forked Github repo
+
+```
+git clone -r http://yourrepo projectname
+```
+
+### pull the docker repo
+
+```
+docker pull jodie/docker-kirby-nginx
 ```
 
 ### run it:
 ```
-docker run -i -t -p 3000:80 -v $PWD:/app bhurlow/docker-kirby-nginx
+docker run -i -t -p 80:80 -v $PWD:/app jodie/docker-kirby-nginx
 ```
 
-note, you'll have to update your site url for css assets to load properly:
+to configure kirby to properly index the site edit this -->
 
 in site.php:
 
 ```
 <?php
 $kirby = kirby();
-$kirby->urls->index = 'http://docker:3000';
+$kirby->urls->index = 'YOUR LOCAL DOCKER IP GOES HERE';
 ```
 
+### list running docker containers:
+for good measure run:
+
+```
+docker ps
+```
+
+and your 
