@@ -42,14 +42,12 @@ docker pull jodie/docker-kirby-nginx
 docker run -i -t -p 80:80 -v $PWD:/app jodie/docker-kirby-nginx
 ```
 
-to configure kirby to properly index the site edit this -->
-
-in site.php:
+it should say in site.php: you can change to map to a differest directory
 
 ```
 <?php
 $kirby = kirby();
-$kirby->urls->index = 'YOUR LOCAL DOCKER IP GOES HERE';
+$kirby->urls->index = '/';
 ```
 
 ### list running docker containers:
